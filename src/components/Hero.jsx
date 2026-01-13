@@ -36,7 +36,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center hero-content">
           <div className="mb-8 inline-block">
             <img 
-              src="/manuel-profile.jpg"
+              src="/manu.jpg"
               alt="Manuel Schuppisser"
               className="w-24 h-24 rounded-full object-cover mx-auto shadow-lg ring-2 ring-gray-100"
             />
