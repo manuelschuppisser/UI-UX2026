@@ -1,8 +1,15 @@
 const CaseStudy = ({ caseStudy, index, onSelect }) => {
   const handleThumbnailClick = (e) => {
-    if (caseStudy.hasVideo && caseStudy.videoUrl) {
+    if (caseStudy.hasVideo) {
       e.stopPropagation()
-      window.open(caseStudy.videoUrl, '_blank')
+      // For single video URL (Komon)
+      if (caseStudy.videoUrl) {
+        window.open(caseStudy.videoUrl, '_blank')
+      }
+      // For multiple video URLs (Service Catalogue), just open the modal
+      else if (caseStudy.videoUrls) {
+        onSelect()
+      }
     }
   }
 
@@ -24,7 +31,7 @@ const CaseStudy = ({ caseStudy, index, onSelect }) => {
               className="w-full md:w-32 h-32 object-cover rounded-lg"
             />
             {caseStudy.hasVideo && (
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-lg hover:bg-black/40 transition-colors">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 rounded-lg hover:bg-black/40 transition-colors z-10">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
                   <svg className="w-6 h-6 text-gray-900 ml-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />

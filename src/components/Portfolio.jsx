@@ -105,32 +105,72 @@ const Portfolio = () => {
       title: 'Service Catalogue',
       timeframe: '2021-2023',
       role: 'Lead UX Designer',
-      thumbnail: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop',
-      description: 'An enterprise-level IT service catalog platform designed to centralize and simplify access to company services, requests, and management for employees.',
+      thumbnail: '/servicecatalogue/1.jpg',
+      videoUrls: [
+        'https://www.youtube.com/watch?v=z971WF6fCdA',
+        'https://www.youtube.com/watch?v=UyWEZB2rm0Q'
+      ],
+      hasVideo: true,
+      description: 'Infrabel is a Belgian government-owned public company that focuses on building, maintaining and upgrading the Belgian railway network, making its capacity available to railway companies. Redesigned their order management system to improve employee productivity and user experience.',
+      fullDescription: 'Infrabel, a Belgian government-owned public company, focuses on building, maintaining and upgrading the Belgian railway network, making its capacity available to railway companies. The project involved redesigning their IT application (Ticketing Management System) to help employees and managers place asset orders more efficiently.',
+      problem: 'The current pain points that Infrabel was experiencing: employees and managers wanted to place asset orders in an IT application (Ticketing Management System). There was too much clicking between screens and the overall functionality such as the clear filter on search in web and mobile versions didn\'t look good. There was just too much information on site that needed to be simplified to allow users to comprehend the information instead of causing information overload.',
+      solutionIntro: 'The goal was to give users the ability to comprehend the information and at the same time increase their productivity with ease of use in the UI functionality. Make it easy for them to find what they\'re searching for together with performing their daily tasks and routine easily. The aim was to make it as clear as possible with progressive disclosure.',
+      uxObjectives: 'The objective was to redesign the web app by adding a gamified functionality where it would be easier for users to track their activity progress on the application. At the same time, reduce the clutter by simplifying the necessary input fields and displaying information that\'s provided on the previous website.',
+      designProcess: [
+        {
+          title: 'User Research',
+          content: 'Identified the problem and solution, defined objectives, and conducted sector competitor analysis through moodboarding.'
+        },
+        {
+          title: 'Define - User Personas',
+          content: 'Created 2 personas that represent the goals and needs of the larger group in the organization.'
+        },
+        {
+          title: 'Design Phase - Mock-ups',
+          content: 'Made 2 totally different versions to get maximum feedback. When the choice was made, decided to make the fields easier to fill-in information by grouping them into tabs so that users can input information without jumping from screen to screen since everything is all in one place.'
+        },
+        {
+          title: 'Gamified Functionality',
+          content: 'Added gamified functionality where it would be easier for users to keep track of their progress and to know the progress of their daily activities.'
+        },
+        {
+          title: 'Final Production',
+          content: 'The final production version was developed in Angular.'
+        }
+      ],
       challenges: [
+        'Too much clicking between screens',
+        'Poor functionality in search filters (web and mobile)',
+        'Information overload - too much information causing confusion',
         'Organizing vast services without overwhelming users',
-        'Integrating with existing ITSM tools like ServiceNow',
         'Creating intuitive navigation for diverse user groups',
         'Balancing comprehensive information with simplicity'
       ],
       solutions: [
         'Led comprehensive UX research and journey mapping',
-        'Designed categorized listings with advanced search filters',
+        'Created 2 user personas representing organizational goals',
+        'Designed 2 different mock-up versions for maximum feedback',
+        'Grouped input fields into tabs to reduce screen jumping',
+        'Implemented progressive disclosure to reduce information overload',
+        'Added gamified functionality for activity progress tracking',
+        'Simplified input fields and information display',
         'Created streamlined request forms with status tracking',
-        'Implemented card-based UI for easy navigation and discovery',
-        'Integrated seamlessly with ServiceNow workflows'
+        'Developed final production version in Angular'
       ],
       outcomes: [
         'Enhanced employee productivity across departments',
         'Reduced support tickets by 30%',
         'Achieved 85% user adoption rate within 3 months',
-        'Improved service request completion time by 40%'
+        'Improved service request completion time by 40%',
+        'Successfully provided solution to ongoing problem in Infrabel',
+        'Easier tracking of daily activities with gamified features',
+        'Reduced information overload with progressive disclosure'
       ],
       images: [
-        'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop'
+        '/servicecatalogue/1.jpg',
+        '/servicecatalogue/2.jpg',
+        '/servicecatalogue/3.jpg',
+        '/servicecatalogue/4.jpg'
       ],
       color: 'from-purple-600 to-purple-800',
       accentColor: 'bg-purple-500'
@@ -241,7 +281,43 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
         </div>
 
         <div className="p-8 space-y-8">
-          {caseStudy.hasVideo && caseStudy.videoUrl ? (
+          {caseStudy.hasVideo && caseStudy.videoUrls ? (
+            <div className="space-y-4">
+              {caseStudy.videoUrls.map((videoUrl, index) => {
+                const videoId = videoUrl.includes('youtube.com') ? videoUrl.split('v=')[1]?.split('&')[0] : null
+                return videoId ? (
+                  <div key={index} className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
+                    <iframe
+                      className="w-full h-full"
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title={`${caseStudy.title} - Video ${index + 1}`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : null
+              })}
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
+                <img 
+                  src={caseStudy.images[currentImage]} 
+                  alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                  {caseStudy.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImage(index)}
+                      className={`w-3 h-3 rounded-full transition-all ${
+                        index === currentImage ? 'bg-white w-8' : 'bg-white/50'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          ) : caseStudy.hasVideo && caseStudy.videoUrl ? (
             <div className="space-y-4">
               <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 cursor-pointer group" onClick={() => window.open(caseStudy.videoUrl, '_blank')}>
                 <img 
@@ -325,8 +401,15 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
 
           {caseStudy.solutionIntro && (
             <div>
-              <h4 className="font-display text-2xl font-bold text-gray-900 mb-3">The Solution</h4>
+              <h4 className="font-display text-2xl font-bold text-gray-900 mb-3">The Solution (UX Goals)</h4>
               <p className="text-gray-700 text-lg leading-relaxed">{caseStudy.solutionIntro}</p>
+            </div>
+          )}
+
+          {caseStudy.uxObjectives && (
+            <div>
+              <h4 className="font-display text-2xl font-bold text-gray-900 mb-3">UX Objectives</h4>
+              <p className="text-gray-700 text-lg leading-relaxed">{caseStudy.uxObjectives}</p>
             </div>
           )}
 
@@ -388,6 +471,18 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
               <h4 className="font-display text-xl font-bold text-gray-900 mb-2">Conclusion</h4>
               <p className="text-gray-700 leading-relaxed">
                 Conducting user interviews from different stakeholders was quite challenging, especially in a different industry outside the usual scope of work. This project provided valuable learning opportunities in a new field.
+              </p>
+            </div>
+          )}
+
+          {caseStudy.slug === 'service-catalogue' && (
+            <div className="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+              <h4 className="font-display text-xl font-bold text-gray-900 mb-2">The Conclusion</h4>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                Having to conduct a series of user interviews from different stakeholders is quite challenging especially when it's a different industry that's outside your scope of work. Somehow, it was manageable as the people who were involved were easy to communicate with and collaborating wasn't a problem.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                It was really a nice relief to know that somehow I managed to provide a solution to an ongoing problem in Infrabel. The priority would be the users and users first amongst others. So hopefully, everything would work out well with the new redesigned application (order management) for Infrabel's employees.
               </p>
             </div>
           )}
