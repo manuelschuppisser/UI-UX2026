@@ -140,30 +140,39 @@ const Portfolio = () => {
       slug: 'komon-app',
       title: 'Komon App',
       timeframe: '2023-2026',
-      role: 'Lead UX/UI Designer',
-      thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop',
-      description: 'A mobile application for independents and freelancers to manage travel, expenses, and reimbursements seamlessly, with features for tracking trips, scanning receipts, and generating reports.',
+      role: 'Lead UX/UI Designer & Marketing Director',
+      thumbnail: '/komon/komon.png',
+      videoUrl: 'https://cdn.prod.website-files.com/66dab54814c77269fb11c52f/66dab54814c77269fb11c638_Capture%20Komon.png',
+      hasVideo: true,
+      description: 'Komon, a startup specializing in the calculation of mileage allowance for professional expenses, asked us to design their new SaaS and to direct the marketing campaign for customer acquisition. The goal of the project is to create a tailor-made tool allowing SMEs to manage their professional expenses, in particular those related to mobility.',
+      fullDescription: 'Komon is a comprehensive SaaS solution designed specifically for SMEs to streamline the management of professional expenses, with a particular focus on mobility-related costs. As a startup specializing in mileage allowance calculations, Komon needed both a robust platform and an effective go-to-market strategy.',
       challenges: [
+        'Creating an intuitive interface for complex mileage calculations',
         'Handling sensitive financial data securely',
-        'Ensuring cross-platform compatibility (iOS/Android)',
+        'Ensuring cross-platform compatibility (iOS/Android/Web)',
         'Designing for on-the-go usage scenarios',
-        'Simplifying complex expense categorization'
+        'Simplifying complex expense categorization',
+        'Developing an effective customer acquisition strategy'
       ],
       solutions: [
         'Designed end-to-end UX/UI from wireframing to high-fidelity prototypes',
-        'Integrated OCR technology for automatic receipt scanning',
+        'Created a tailor-made tool specifically for SME expense management',
+        'Integrated automated mileage allowance calculation system',
         'Implemented real-time expense categorization with smart suggestions',
-        'Created intuitive dashboard visualizations for financial insights',
+        'Developed intuitive dashboard visualizations for financial insights',
+        'Directed comprehensive marketing campaign for customer acquisition',
         'Emphasized intuitive gestures and minimal input for mobile-first experience'
       ],
       outcomes: [
-        'Streamlined expense management for 10,000+ users',
+        'Successfully launched SaaS platform for SME market',
+        'Streamlined expense management for thousands of users',
         'Saved users an average of 3 hours per week on admin tasks',
         'Increased accuracy in expense reporting by 90%',
+        'Achieved strong customer acquisition through targeted marketing',
         'Achieved 4.8-star rating on app stores'
       ],
       images: [
-        'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+        '/komon/komon.png',
         'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop',
         'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
         'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop'
@@ -232,24 +241,64 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
         </div>
 
         <div className="p-8 space-y-8">
-          <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
-            <img 
-              src={caseStudy.images[currentImage]} 
-              alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-              {caseStudy.images.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentImage(index)}
-                  className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentImage ? 'bg-white w-8' : 'bg-white/50'
-                  }`}
+          {caseStudy.hasVideo && caseStudy.videoUrl ? (
+            <div className="space-y-4">
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 cursor-pointer group" onClick={() => window.open(caseStudy.videoUrl, '_blank')}>
+                <img 
+                  src={caseStudy.thumbnail} 
+                  alt={`${caseStudy.title} - Video Thumbnail`}
+                  className="w-full h-full object-cover"
                 />
-              ))}
+                <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors">
+                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                    <svg className="w-10 h-10 text-gray-900 ml-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
+                  Click to watch video
+                </div>
+              </div>
+              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
+                <img 
+                  src={caseStudy.images[currentImage]} 
+                  alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                  {caseStudy.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentImage(index)}
+                      className={`w-3 h-3 rounded-full transition-all ${
+                        index === currentImage ? 'bg-white w-8' : 'bg-white/50'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
+              <img 
+                src={caseStudy.images[currentImage]} 
+                alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                {caseStudy.images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentImage(index)}
+                    className={`w-3 h-3 rounded-full transition-all ${
+                      index === currentImage ? 'bg-white w-8' : 'bg-white/50'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className={`${caseStudy.accentColor} text-white p-4 rounded-lg`}>
