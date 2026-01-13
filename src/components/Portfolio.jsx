@@ -181,7 +181,7 @@ const Portfolio = () => {
       title: 'Komon App',
       timeframe: '2023-2026',
       role: 'Lead UX/UI Designer & Marketing Director',
-      thumbnail: '/komon/komon.png',
+      thumbnail: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=300&fit=crop',
       videoUrl: 'https://cdn.prod.website-files.com/66dab54814c77269fb11c52f/66dab54814c77269fb11c638_Capture%20Komon.png',
       hasVideo: true,
       description: 'Komon, a startup specializing in the calculation of mileage allowance for professional expenses, asked us to design their new SaaS and to direct the marketing campaign for customer acquisition. The goal of the project is to create a tailor-made tool allowing SMEs to manage their professional expenses, in particular those related to mobility.',
