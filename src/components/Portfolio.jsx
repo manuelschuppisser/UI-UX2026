@@ -105,7 +105,7 @@ const Portfolio = () => {
       title: 'Service Catalogue',
       timeframe: '2021-2023',
       role: 'Lead UX Designer',
-      thumbnail: '/servicecatalogue/1.jpg',
+      thumbnail: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop',
       videoUrls: [
         'https://www.youtube.com/watch?v=z971WF6fCdA',
         'https://www.youtube.com/watch?v=UyWEZB2rm0Q'
@@ -213,9 +213,9 @@ const Portfolio = () => {
       ],
       images: [
         '/komon/komon.png',
-        'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop'
+        '/komon/komon.png',
+        '/komon/komon.png',
+        '/komon/komon.png'
       ],
       color: 'from-green-600 to-green-800',
       accentColor: 'bg-green-500'
@@ -281,7 +281,8 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
         </div>
 
         <div className="p-8 space-y-8">
-          {caseStudy.hasVideo && caseStudy.videoUrls ? (
+          {/* Videos first for all case studies with videos */}
+          {caseStudy.hasVideo && caseStudy.videoUrls && (
             <div className="space-y-4">
               {caseStudy.videoUrls.map((videoUrl, index) => {
                 const videoId = videoUrl.includes('youtube.com') ? videoUrl.split('v=')[1]?.split('&')[0] : null
@@ -298,83 +299,48 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
                   </div>
                 ) : null
               })}
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
-                <img 
-                  src={caseStudy.images[currentImage]} 
-                  alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                  {caseStudy.images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImage(index)}
-                      className={`w-3 h-3 rounded-full transition-all ${
-                        index === currentImage ? 'bg-white w-8' : 'bg-white/50'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
             </div>
-          ) : caseStudy.hasVideo && caseStudy.videoUrl ? (
-            <div className="space-y-4">
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 cursor-pointer group" onClick={() => window.open(caseStudy.videoUrl, '_blank')}>
-                <img 
-                  src={caseStudy.thumbnail} 
-                  alt={`${caseStudy.title} - Video Thumbnail`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors">
-                  <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
-                    <svg className="w-10 h-10 text-gray-900 ml-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </div>
-                </div>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
-                  Click to watch video
-                </div>
-              </div>
-              <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
-                <img 
-                  src={caseStudy.images[currentImage]} 
-                  alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                  {caseStudy.images.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentImage(index)}
-                      className={`w-3 h-3 rounded-full transition-all ${
-                        index === currentImage ? 'bg-white w-8' : 'bg-white/50'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
+          )}
+
+          {caseStudy.hasVideo && caseStudy.videoUrl && !caseStudy.videoUrls && (
+            <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 cursor-pointer group" onClick={() => window.open(caseStudy.videoUrl, '_blank')}>
               <img 
-                src={caseStudy.images[currentImage]} 
-                alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
+                src={caseStudy.thumbnail} 
+                alt={`${caseStudy.title} - Video Thumbnail`}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-                {caseStudy.images.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImage(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      index === currentImage ? 'bg-white w-8' : 'bg-white/50'
-                    }`}
-                  />
-                ))}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors">
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
+                  <svg className="w-10 h-10 text-gray-900 ml-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
+                Click to watch video
               </div>
             </div>
           )}
+
+          {/* Screenshots carousel */}
+          <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
+            <img 
+              src={caseStudy.images[currentImage]} 
+              alt={`${caseStudy.title} - Screenshot ${currentImage + 1}`}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+              {caseStudy.images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImage(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    index === currentImage ? 'bg-white w-8' : 'bg-white/50'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-4">
             <div className={`${caseStudy.accentColor} text-white p-4 rounded-lg`}>
