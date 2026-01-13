@@ -1,48 +1,111 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import CaseStudy from './CaseStudy'
 
 const Portfolio = () => {
   const [selectedCase, setSelectedCase] = useState(null)
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '')
+      if (hash) {
+        const caseStudy = caseStudies.find(cs => cs.slug === hash)
+        if (caseStudy) {
+          setSelectedCase(caseStudy)
+        }
+      } else {
+        setSelectedCase(null)
+      }
+    }
+
+    handleHashChange()
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
+  const handleSelectCase = (caseStudy) => {
+    window.location.hash = caseStudy.slug
+    setSelectedCase(caseStudy)
+  }
+
+  const handleCloseModal = () => {
+    window.history.pushState('', document.title, window.location.pathname + window.location.search)
+    setSelectedCase(null)
+  }
+
   const caseStudies = [
     {
       id: 1,
+      slug: 'click-and-ride',
       title: 'Click and Ride',
       timeframe: '2020-2021',
       role: 'UX/UI Designer',
+      thumbnail: '/clickandride/clickand ride.png',
       description: 'A web-based application for ordering railway capacities in Belgium, allowing users to book tram lines efficiently on any device. The goal was to replace manual processes (emails/calls) that caused delays and errors with a streamlined, mobile-friendly system.',
+      fullDescription: 'Click and Ride is an application for ordering railways in Belgium. Users can easily order on any platform because this is a web-based application. The main objective of this app is that it\'s easy to book tram lines on any device. An easy workflow was made from ordering to paying for the selected line, and it was also easy to manage the order that had been selected.',
+      problem: 'Previously, there were several workflows that caused the order speed to decrease because they still use a manual system that uses email and then makes calls to order. This is not effective if there are many orders which will result in stacking and delays in ordering. As a result, users become increasingly disinterested in using the method and may no longer be interested in using the tram.',
+      solutionIntro: 'Two main points were addressed: ensuring users didn\'t make mistakes ordering paths and could operate from mobile quickly, and allowing users to book transportation capabilities (paths) with different criteria such as time and specification that must match with train requirements.',
+      designProcess: [
+        {
+          title: 'User Research',
+          content: 'Identified the problem and solution, defined objectives, and conducted sector competitor analysis through moodboarding.'
+        },
+        {
+          title: 'Define',
+          content: 'Created a persona to represent user problems: Robert, a 42-year-old Belgian capacity transportation manager at SNCB with a good salary.'
+        },
+        {
+          title: 'Design Process',
+          content: 'Mapped the workflow to create flow solutions. Created several homescreen versions for stakeholder selection. Stakeholders opted for a minimalist style with changes to suit company branding.'
+        },
+        {
+          title: 'Key Features',
+          content: 'Path browser page with filters to set tram routes. Fast ordering process with overlays and wizards to prevent page reloading. Order management page to delete orders, track line status, and monitor tram readiness.'
+        },
+        {
+          title: 'Mobile Adaptation',
+          content: 'Mobile version was perfectly adapted to ensure users are comfortable booking tram lines from anywhere.'
+        }
+      ],
       challenges: [
-        'Adapting to a new industry with complex requirements',
+        'Adapting to a new industry outside the usual scope of work',
+        'Conducting user interviews with different stakeholders',
         'Ensuring mobile usability for on-the-go transportation managers',
         'Replacing legacy manual booking processes',
         'Minimizing errors in capacity reservations'
       ],
       solutions: [
-        'Conducted extensive user research and created detailed personas (e.g., transportation managers)',
+        'Conducted extensive user research and created detailed personas (Robert, transportation manager)',
+        'Mapped complete workflow before designing solutions',
         'Designed intuitive workflows, wireframes, and interactive prototypes',
         'Implemented minimalist branding with smart filters, overlays, and booking wizards',
-        'Created an order management dashboard for tracking, editing, and status checks'
+        'Created special filters for setting tram routes not available in other applications',
+        'Built order management dashboard for tracking, editing, and status checks',
+        'Developed perfectly adapted mobile version for booking from anywhere'
       ],
       outcomes: [
         'Reduced booking time by 60%',
         'Minimized booking errors by 75%',
         'Improved user satisfaction scores significantly',
-        'Streamlined communication between operators'
+        'Streamlined communication between operators',
+        'Enabled booking from any device with mobile-friendly interface'
       ],
       images: [
-        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop',
-        'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=600&fit=crop'
+        '/clickandride/clickand ride.png',
+        '/clickandride/clickand ride2.png',
+        '/clickandride/clickand ride5.png',
+        '/clickandride/clickandridepersonnas.jpg',
+        '/clickandride/diragram clickandride.png'
       ],
       color: 'from-blue-600 to-blue-800',
       accentColor: 'bg-blue-500'
     },
     {
       id: 2,
+      slug: 'service-catalogue',
       title: 'Service Catalogue',
       timeframe: '2021-2023',
       role: 'Lead UX Designer',
+      thumbnail: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop',
       description: 'An enterprise-level IT service catalog platform designed to centralize and simplify access to company services, requests, and management for employees.',
       challenges: [
         'Organizing vast services without overwhelming users',
@@ -74,9 +137,11 @@ const Portfolio = () => {
     },
     {
       id: 3,
+      slug: 'komon-app',
       title: 'Komon App',
       timeframe: '2023-2026',
       role: 'Lead UX/UI Designer',
+      thumbnail: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop',
       description: 'A mobile application for independents and freelancers to manage travel, expenses, and reimbursements seamlessly, with features for tracking trips, scanning receipts, and generating reports.',
       challenges: [
         'Handling sensitive financial data securely',
@@ -126,7 +191,7 @@ const Portfolio = () => {
               key={caseStudy.id} 
               caseStudy={caseStudy} 
               index={index}
-              onSelect={() => setSelectedCase(caseStudy)}
+              onSelect={() => handleSelectCase(caseStudy)}
             />
           ))}
         </div>
@@ -135,7 +200,7 @@ const Portfolio = () => {
       {selectedCase && (
         <CaseStudyModal 
           caseStudy={selectedCase} 
-          onClose={() => setSelectedCase(null)} 
+          onClose={handleCloseModal} 
         />
       )}
     </section>
@@ -199,8 +264,36 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
 
           <div>
             <h4 className="font-display text-2xl font-bold text-gray-900 mb-3">Overview</h4>
-            <p className="text-gray-700 text-lg leading-relaxed">{caseStudy.description}</p>
+            <p className="text-gray-700 text-lg leading-relaxed">{caseStudy.fullDescription || caseStudy.description}</p>
           </div>
+
+          {caseStudy.problem && (
+            <div>
+              <h4 className="font-display text-2xl font-bold text-gray-900 mb-3">The Problem</h4>
+              <p className="text-gray-700 text-lg leading-relaxed">{caseStudy.problem}</p>
+            </div>
+          )}
+
+          {caseStudy.solutionIntro && (
+            <div>
+              <h4 className="font-display text-2xl font-bold text-gray-900 mb-3">The Solution</h4>
+              <p className="text-gray-700 text-lg leading-relaxed">{caseStudy.solutionIntro}</p>
+            </div>
+          )}
+
+          {caseStudy.designProcess && (
+            <div>
+              <h4 className="font-display text-2xl font-bold text-gray-900 mb-4">My Design Process</h4>
+              <div className="space-y-6">
+                {caseStudy.designProcess.map((step, index) => (
+                  <div key={index} className="bg-gray-50 p-6 rounded-lg">
+                    <h5 className="font-semibold text-lg text-gray-900 mb-2">{index + 1}. {step.title}</h5>
+                    <p className="text-gray-700 leading-relaxed">{step.content}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           <div>
             <h4 className="font-display text-2xl font-bold text-gray-900 mb-4">Challenges</h4>
@@ -240,6 +333,15 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
               ))}
             </div>
           </div>
+
+          {caseStudy.slug === 'click-and-ride' && (
+            <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h4 className="font-display text-xl font-bold text-gray-900 mb-2">Conclusion</h4>
+              <p className="text-gray-700 leading-relaxed">
+                Conducting user interviews from different stakeholders was quite challenging, especially in a different industry outside the usual scope of work. This project provided valuable learning opportunities in a new field.
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </div>
