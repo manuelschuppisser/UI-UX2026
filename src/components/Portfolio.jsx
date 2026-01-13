@@ -39,7 +39,7 @@ const Portfolio = () => {
       title: 'Click and Ride',
       timeframe: '2020-2021',
       role: 'UX/UI Designer',
-      thumbnail: '/clickandride/clickand ride.png',
+      thumbnail: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=300&fit=crop',
       description: 'A web-based application for ordering railway capacities in Belgium, allowing users to book tram lines efficiently on any device. The goal was to replace manual processes (emails/calls) that caused delays and errors with a streamlined, mobile-friendly system.',
       fullDescription: 'Click and Ride is an application for ordering railways in Belgium. Users can easily order on any platform because this is a web-based application. The main objective of this app is that it\'s easy to book tram lines on any device. An easy workflow was made from ordering to paying for the selected line, and it was also easy to manage the order that had been selected.',
       problem: 'Previously, there were several workflows that caused the order speed to decrease because they still use a manual system that uses email and then makes calls to order. This is not effective if there are many orders which will result in stacking and delays in ordering. As a result, users become increasingly disinterested in using the method and may no longer be interested in using the tram.',

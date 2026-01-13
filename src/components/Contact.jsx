@@ -109,7 +109,9 @@ const Contact = () => {
                   <p className="text-sm text-gray-600 mb-4">Connect on social media</p>
                   <div className="flex gap-3">
                     <a 
-                      href="#" 
+                      href="https://www.linkedin.com/in/schuppisser-manuel/" 
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-3 bg-gray-100 hover:bg-gray-900 hover:text-white rounded-lg transition-all"
                       aria-label="LinkedIn"
                     >
