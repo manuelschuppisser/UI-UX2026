@@ -182,7 +182,7 @@ const Portfolio = () => {
       timeframe: '2023-2026',
       role: 'Lead UX/UI Designer & Marketing Director',
       thumbnail: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=300&fit=crop',
-      videoUrl: 'https://cdn.prod.website-files.com/66dab54814c77269fb11c52f/66dab54814c77269fb11c638_Capture%20Komon.png',
+      videoUrl: 'https://www.youtube.com/watch?v=3MGhn31aXP4',
       hasVideo: true,
       description: 'Komon, a startup specializing in the calculation of mileage allowance for professional expenses, asked us to design their new SaaS and to direct the marketing campaign for customer acquisition. The goal of the project is to create a tailor-made tool allowing SMEs to manage their professional expenses, in particular those related to mobility.',
       fullDescription: 'Komon is a comprehensive SaaS solution designed specifically for SMEs to streamline the management of professional expenses, with a particular focus on mobility-related costs. As a startup specializing in mileage allowance calculations, Komon needed both a robust platform and an effective go-to-market strategy.',
