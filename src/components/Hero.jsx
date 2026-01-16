@@ -51,7 +51,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-wrap justify-center gap-3 mb-12 text-sm">
-            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full">6+ Years Experience</span>
+            <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full">5+ Years Experience</span>
             <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full">French</span>
             <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full">Dutch</span>
             <span className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full">English</span>

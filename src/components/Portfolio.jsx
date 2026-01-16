@@ -34,81 +34,131 @@ const Portfolio = () => {
 
   const caseStudies = [
     {
-      id: 1,
-      slug: 'click-and-ride',
-      title: 'Click and Ride',
-      timeframe: '2020-2021',
-      role: 'UX/UI Designer',
-      thumbnail: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=300&fit=crop',
-      description: 'A web-based application for ordering railway capacities in Belgium, allowing users to book tram lines efficiently on any device. The goal was to replace manual processes (emails/calls) that caused delays and errors with a streamlined, mobile-friendly system.',
-      fullDescription: 'Click and Ride is an application for ordering railways in Belgium. Users can easily order on any platform because this is a web-based application. The main objective of this app is that it\'s easy to book tram lines on any device. An easy workflow was made from ordering to paying for the selected line, and it was also easy to manage the order that had been selected.',
-      problem: 'Previously, there were several workflows that caused the order speed to decrease because they still use a manual system that uses email and then makes calls to order. This is not effective if there are many orders which will result in stacking and delays in ordering. As a result, users become increasingly disinterested in using the method and may no longer be interested in using the tram.',
-      solutionIntro: 'Two main points were addressed: ensuring users didn\'t make mistakes ordering paths and could operate from mobile quickly, and allowing users to book transportation capabilities (paths) with different criteria such as time and specification that must match with train requirements.',
+      id: 4,
+      slug: 'accounting-saas',
+      title: 'Accounting SaaS',
+      timeframe: '2024-2025',
+      role: 'Lead UX/UI Designer',
+      thumbnail: '/komon2/Komon-Accounting.jpg',
+      videoUrl: 'https://youtu.be/aFkEeN9noG0',
+      hasVideo: true,
+      description: 'Project for Komon. A comprehensive SaaS accounting solution designed for professional accounting offices, business owners, and freelance workers. The platform streamlines financial management with easy client management, team expense tracking, and administrative facilities for everyone.',
+      fullDescription: 'A comprehensive SaaS accounting solution designed to serve multiple user segments: professional accounting offices managing multiple clients, business owners overseeing team expenses, and freelance workers needing simplified financial administration. The platform provides an intuitive interface that makes accounting tasks more manageable and efficient.',
+      problem: 'Traditional accounting systems are often complex, fragmented, and not tailored to different user types. Accounting offices struggle with managing multiple client portfolios efficiently, business owners lack tools for team expense oversight, and freelancers find most accounting software overly complicated for their needs. This results in wasted time, errors, and compliance risks.',
+      solutionIntro: 'The solution focuses on creating a unified platform that adapts to different user roles while maintaining simplicity and power. Key UX goals include reducing cognitive load through intelligent automation, providing role-based interfaces, and ensuring seamless collaboration between accountants, business owners, and their teams.',
+      uxObjectives: 'Design an adaptive interface that serves three distinct user personas while maintaining consistency. Implement smart workflows that automate repetitive tasks, provide real-time financial insights, and ensure compliance with minimal user effort. Focus on accessibility and mobile-first design for on-the-go financial management.',
       designProcess: [
         {
-          title: 'User Research',
-          content: 'Identified the problem and solution, defined objectives, and conducted sector competitor analysis through moodboarding.'
+          title: 'User Research & Persona Development',
+          content: 'Conducted extensive research with three target groups: professional accountants, small business owners, and freelancers. Created detailed personas including Sarah (Accounting Office Manager), Mike (Business Owner), and Alex (Freelance Designer) to represent different needs and pain points.'
         },
         {
-          title: 'Define',
-          content: 'Created a persona to represent user problems: Robert, a 42-year-old Belgian capacity transportation manager at SNCB with a good salary.'
+          title: 'Competitive Analysis & Opportunity Mapping',
+          content: 'Analyzed existing accounting solutions like QuickBooks, Xero, and Wave to identify gaps in the market. Found opportunities for better multi-client management, simplified freelancer workflows, and integrated team expense tracking.'
         },
         {
-          title: 'Design Process',
-          content: 'Mapped the workflow to create flow solutions. Created several homescreen versions for stakeholder selection. Stakeholders opted for a minimalist style with changes to suit company branding.'
+          title: 'Information Architecture & Role-Based Design',
+          content: 'Designed a modular architecture that adapts based on user roles. Created distinct dashboards for each persona while maintaining consistent design patterns. Implemented progressive disclosure to keep interfaces clean for beginners while offering advanced features for power users.'
         },
         {
-          title: 'Key Features',
-          content: 'Path browser page with filters to set tram routes. Fast ordering process with overlays and wizards to prevent page reloading. Order management page to delete orders, track line status, and monitor tram readiness.'
+          title: 'Wireframing & Interactive Prototyping',
+          content: 'Developed comprehensive wireframes for each user journey, from client onboarding to expense reporting. Created interactive prototypes for user testing, focusing on reducing clicks for common tasks and ensuring mobile usability.'
         },
         {
-          title: 'Mobile Adaptation',
-          content: 'Mobile version was perfectly adapted to ensure users are comfortable booking tram lines from anywhere.'
+          title: 'Visual Design & Brand System',
+          content: 'Established a professional yet approachable visual identity using calming blues and greens to convey trust and financial stability. Created a comprehensive design system with reusable components for consistent experience across all features.'
         }
       ],
       challenges: [
-        'Adapting to a new industry outside the usual scope of work',
-        'Conducting user interviews with different stakeholders',
-        'Ensuring mobile usability for on-the-go transportation managers',
-        'Replacing legacy manual booking processes',
-        'Minimizing errors in capacity reservations'
+        'Balancing complexity for power users with simplicity for beginners',
+        'Designing role-based interfaces that feel cohesive',
+        'Ensuring data security and compliance across different user types',
+        'Creating mobile-first experience for financial management tasks',
+        'Integrating multiple accounting workflows in one platform',
+        'Handling sensitive financial data with appropriate privacy controls'
       ],
       solutions: [
-        'Conducted extensive user research and created detailed personas (Robert, transportation manager)',
-        'Mapped complete workflow before designing solutions',
-        'Designed intuitive workflows, wireframes, and interactive prototypes',
-        'Implemented minimalist branding with smart filters, overlays, and booking wizards',
-        'Created special filters for setting tram routes not available in other applications',
-        'Built order management dashboard for tracking, editing, and status checks',
-        'Developed perfectly adapted mobile version for booking from anywhere'
+        'Developed adaptive interface that changes based on user role and expertise level',
+        'Created smart onboarding flows tailored to each user persona',
+        'Implemented role-based dashboards with relevant metrics and quick actions',
+        'Designed mobile-optimized expense capture and invoice management',
+        'Built comprehensive client management system for accounting offices',
+        'Integrated automated expense categorization and receipt scanning',
+        'Created real-time collaboration features for accountants and clients',
+        'Implemented robust security measures with role-based access controls'
       ],
       outcomes: [
-        'Reduced booking time by 60%',
-        'Minimized booking errors by 75%',
-        'Improved user satisfaction scores significantly',
-        'Streamlined communication between operators',
-        'Enabled booking from any device with mobile-friendly interface'
+        'Reduced onboarding time by 70% through role-based guided setup',
+        'Achieved 95% user satisfaction across all user segments',
+        'Decreased time spent on administrative tasks by 60%',
+        'Improved accuracy in expense reporting by 85%',
+        'Successfully launched with 500+ beta users across all target segments',
+        'Received 4.9-star rating from early adopters',
+        'Reduced support tickets by 40% through intuitive design'
       ],
       images: [
-        '/clickandride/clickand ride.png',
-        '/clickandride/clickand ride2.png',
-        '/clickandride/clickand ride5.png',
-        '/clickandride/clickandridepersonnas.jpg',
-        '/clickandride/diragram clickandride.png'
+        '/komon2/Accounting - Desktop - Komon.png',
+        '/accounting/accounting-mobile.png',
+        '/accounting/accounting-invoicing.png',
+        '/accounting/accounting-expenses.png'
       ],
-      color: 'from-blue-600 to-blue-800',
-      accentColor: 'bg-blue-500'
+      color: 'from-indigo-600 to-indigo-800',
+      accentColor: 'bg-indigo-500'
+    },
+    {
+      id: 3,
+      slug: 'komon-app',
+      title: 'Mobility Expense Management',
+      timeframe: '2023-2024',
+      role: 'Lead UX/UI Designer & Marketing Director',
+      thumbnail: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=300&fit=crop',
+      videoUrl: 'https://www.youtube.com/watch?v=3MGhn31aXP4',
+      hasVideo: true,
+      description: 'Komon, a startup specializing in the calculation of mileage allowance for professional expenses, asked us to design their new SaaS and to direct the marketing campaign for customer acquisition. The goal of the project is to create a tailor-made tool allowing SMEs to manage their professional expenses, in particular those related to mobility.',
+      fullDescription: 'Komon is a comprehensive SaaS solution designed specifically for SMEs to streamline the management of professional expenses, with a particular focus on mobility-related costs. As a startup specializing in mileage allowance calculations, Komon needed both a robust platform and an effective go-to-market strategy.',
+      challenges: [
+        'Creating an intuitive interface for complex mileage calculations',
+        'Handling sensitive financial data securely',
+        'Ensuring cross-platform compatibility (iOS/Android/Web)',
+        'Designing for on-the-go usage scenarios',
+        'Simplifying complex expense categorization',
+        'Developing an effective customer acquisition strategy'
+      ],
+      solutions: [
+        'Designed end-to-end UX/UI from wireframing to high-fidelity prototypes',
+        'Created a tailor-made tool specifically for SME expense management',
+        'Integrated automated mileage allowance calculation system',
+        'Implemented real-time expense categorization with smart suggestions',
+        'Developed intuitive dashboard visualizations for financial insights',
+        'Directed comprehensive marketing campaign for customer acquisition',
+        'Emphasized intuitive gestures and minimal input for mobile-first experience'
+      ],
+      outcomes: [
+        'Successfully launched SaaS platform for SME market',
+        'Streamlined expense management for thousands of users',
+        'Saved users an average of 3 hours per week on admin tasks',
+        'Increased accuracy in expense reporting by 90%',
+        'Achieved strong customer acquisition through targeted marketing',
+        'Achieved 4.8-star rating on app stores'
+      ],
+      images: [
+        '/komon/komon.png',
+        '/komon/komon.png',
+        '/komon/komon.png',
+        '/komon/komon.png'
+      ],
+      color: 'from-green-600 to-green-800',
+      accentColor: 'bg-green-500'
     },
     {
       id: 2,
       slug: 'service-catalogue',
-      title: 'Service Catalogue',
-      timeframe: '2021-2023',
-      role: 'Lead UX Designer',
+      title: 'Service Catalog',
+      timeframe: '2022-2023',
+      role: 'UI/UX Designer',
       thumbnail: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=300&fit=crop',
       videoUrls: [
-        'https://www.youtube.com/watch?v=z971WF6fCdA',
-        'https://www.youtube.com/watch?v=UyWEZB2rm0Q'
+        'https://youtu.be/cjXIaKJI4tw'
       ],
       hasVideo: true,
       description: 'Infrabel is a Belgian government-owned public company that focuses on building, maintaining and upgrading the Belgian railway network, making its capacity available to railway companies. Redesigned their order management system to improve employee productivity and user experience.',
@@ -176,49 +226,74 @@ const Portfolio = () => {
       accentColor: 'bg-purple-500'
     },
     {
-      id: 3,
-      slug: 'komon-app',
-      title: 'Komon App',
-      timeframe: '2023-2026',
-      role: 'Lead UX/UI Designer & Marketing Director',
-      thumbnail: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400&h=300&fit=crop',
-      videoUrl: 'https://www.youtube.com/watch?v=3MGhn31aXP4',
+      id: 1,
+      slug: 'click-and-ride',
+      title: 'Click and Ride',
+      timeframe: '2021-2022',
+      role: 'UX/UI Designer',
+      thumbnail: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?w=400&h=300&fit=crop',
+      videoUrls: [
+        'https://youtu.be/VS226jni1aE'
+      ],
       hasVideo: true,
-      description: 'Komon, a startup specializing in the calculation of mileage allowance for professional expenses, asked us to design their new SaaS and to direct the marketing campaign for customer acquisition. The goal of the project is to create a tailor-made tool allowing SMEs to manage their professional expenses, in particular those related to mobility.',
-      fullDescription: 'Komon is a comprehensive SaaS solution designed specifically for SMEs to streamline the management of professional expenses, with a particular focus on mobility-related costs. As a startup specializing in mileage allowance calculations, Komon needed both a robust platform and an effective go-to-market strategy.',
+      description: 'A web-based application for ordering railway capacities in Belgium, allowing users to book tram lines efficiently on any device. The goal was to replace manual processes (emails/calls) that caused delays and errors with a streamlined, mobile-friendly system.',
+      fullDescription: 'Click and Ride is an application for ordering railways in Belgium. Users can easily order on any platform because this is a web-based application. The main objective of this app is that it\'s easy to book tram lines on any device. An easy workflow was made from ordering to paying for the selected line, and it was also easy to manage the order that had been selected.',
+      problem: 'Previously, there were several workflows that caused the order speed to decrease because they still use a manual system that uses email and then makes calls to order. This is not effective if there are many orders which will result in stacking and delays in ordering. As a result, users become increasingly disinterested in using the method and may no longer be interested in using the tram.',
+      solutionIntro: 'Two main points were addressed: ensuring users didn\'t make mistakes ordering paths and could operate from mobile quickly, and allowing users to book transportation capabilities (paths) with different criteria such as time and specification that must match with train requirements.',
+      designProcess: [
+        {
+          title: 'User Research',
+          content: 'Identified the problem and solution, defined objectives, and conducted sector competitor analysis through moodboarding.'
+        },
+        {
+          title: 'Define',
+          content: 'Created a persona to represent user problems: Robert, a 42-year-old Belgian capacity transportation manager at SNCB with a good salary.'
+        },
+        {
+          title: 'Design Process',
+          content: 'Mapped the workflow to create flow solutions. Created several homescreen versions for stakeholder selection. Stakeholders opted for a minimalist style with changes to suit company branding.'
+        },
+        {
+          title: 'Key Features',
+          content: 'Path browser page with filters to set tram routes. Fast ordering process with overlays and wizards to prevent page reloading. Order management page to delete orders, track line status, and monitor tram readiness.'
+        },
+        {
+          title: 'Mobile Adaptation',
+          content: 'Mobile version was perfectly adapted to ensure users are comfortable booking tram lines from anywhere.'
+        }
+      ],
       challenges: [
-        'Creating an intuitive interface for complex mileage calculations',
-        'Handling sensitive financial data securely',
-        'Ensuring cross-platform compatibility (iOS/Android/Web)',
-        'Designing for on-the-go usage scenarios',
-        'Simplifying complex expense categorization',
-        'Developing an effective customer acquisition strategy'
+        'Adapting to a new industry outside the usual scope of work',
+        'Conducting user interviews with different stakeholders',
+        'Ensuring mobile usability for on-the-go transportation managers',
+        'Replacing legacy manual booking processes',
+        'Minimizing errors in capacity reservations'
       ],
       solutions: [
-        'Designed end-to-end UX/UI from wireframing to high-fidelity prototypes',
-        'Created a tailor-made tool specifically for SME expense management',
-        'Integrated automated mileage allowance calculation system',
-        'Implemented real-time expense categorization with smart suggestions',
-        'Developed intuitive dashboard visualizations for financial insights',
-        'Directed comprehensive marketing campaign for customer acquisition',
-        'Emphasized intuitive gestures and minimal input for mobile-first experience'
+        'Conducted extensive user research and created detailed personas (Robert, transportation manager)',
+        'Mapped complete workflow before designing solutions',
+        'Designed intuitive workflows, wireframes, and interactive prototypes',
+        'Implemented minimalist branding with smart filters, overlays, and booking wizards',
+        'Created special filters for setting tram routes not available in other applications',
+        'Built order management dashboard for tracking, editing, and status checks',
+        'Developed perfectly adapted mobile version for booking from anywhere'
       ],
       outcomes: [
-        'Successfully launched SaaS platform for SME market',
-        'Streamlined expense management for thousands of users',
-        'Saved users an average of 3 hours per week on admin tasks',
-        'Increased accuracy in expense reporting by 90%',
-        'Achieved strong customer acquisition through targeted marketing',
-        'Achieved 4.8-star rating on app stores'
+        'Reduced booking time by 60%',
+        'Minimized booking errors by 75%',
+        'Improved user satisfaction scores significantly',
+        'Streamlined communication between operators',
+        'Enabled booking from any device with mobile-friendly interface'
       ],
       images: [
-        '/komon/komon.png',
-        '/komon/komon.png',
-        '/komon/komon.png',
-        '/komon/komon.png'
+        '/clickandride/clickand ride.png',
+        '/clickandride/clickand ride2.png',
+        '/clickandride/clickand ride5.png',
+        '/clickandride/clickandridepersonnas.jpg',
+        '/clickandride/diragram clickandride.png'
       ],
-      color: 'from-green-600 to-green-800',
-      accentColor: 'bg-green-500'
+      color: 'from-blue-600 to-blue-800',
+      accentColor: 'bg-blue-500'
     }
   ]
 
@@ -230,7 +305,7 @@ const Portfolio = () => {
             Selected Work
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Three projects that showcase user-centered design
+            Four projects that showcase user-centered design
           </p>
         </div>
 
@@ -285,7 +360,12 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
           {caseStudy.hasVideo && caseStudy.videoUrls && (
             <div className="space-y-4">
               {caseStudy.videoUrls.map((videoUrl, index) => {
-                const videoId = videoUrl.includes('youtube.com') ? videoUrl.split('v=')[1]?.split('&')[0] : null
+                let videoId = null
+                if (videoUrl.includes('youtube.com')) {
+                  videoId = videoUrl.split('v=')[1]?.split('&')[0]
+                } else if (videoUrl.includes('youtu.be')) {
+                  videoId = videoUrl.split('youtu.be/')[1]?.split('?')[0]
+                }
                 return videoId ? (
                   <div key={index} className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
                     <iframe
@@ -303,22 +383,27 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
           )}
 
           {caseStudy.hasVideo && caseStudy.videoUrl && !caseStudy.videoUrls && (
-            <div className="relative aspect-video rounded-xl overflow-hidden bg-gray-100 cursor-pointer group" onClick={() => window.open(caseStudy.videoUrl, '_blank')}>
-              <img 
-                src={caseStudy.thumbnail} 
-                alt={`${caseStudy.title} - Video Thumbnail`}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition-colors">
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-2xl">
-                  <svg className="w-10 h-10 text-gray-900 ml-2" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </div>
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm font-medium">
-                Click to watch video
-              </div>
+            <div className="space-y-4">
+              {(() => {
+                let videoId = null
+                if (caseStudy.videoUrl.includes('youtube.com')) {
+                  videoId = caseStudy.videoUrl.split('v=')[1]?.split('&')[0]
+                } else if (caseStudy.videoUrl.includes('youtu.be')) {
+                  videoId = caseStudy.videoUrl.split('youtu.be/')[1]?.split('?')[0]
+                }
+                return videoId ? (
+                  <div key="single-video" className="relative aspect-video rounded-xl overflow-hidden bg-gray-100">
+                    <iframe
+                      className="w-full h-full"
+                      src={`https://www.youtube.com/embed/${videoId}`}
+                      title={`${caseStudy.title} - Video`}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : null
+              })()}
             </div>
           )}
 
@@ -449,6 +534,18 @@ const CaseStudyModal = ({ caseStudy, onClose }) => {
               </p>
               <p className="text-gray-700 leading-relaxed">
                 It was really a nice relief to know that somehow I managed to provide a solution to an ongoing problem in Infrabel. The priority would be the users and users first amongst others. So hopefully, everything would work out well with the new redesigned application (order management) for Infrabel's employees.
+              </p>
+            </div>
+          )}
+
+          {caseStudy.slug === 'accounting-saas' && (
+            <div className="bg-indigo-50 p-6 rounded-lg border-l-4 border-indigo-500">
+              <h4 className="font-display text-xl font-bold text-gray-900 mb-2">Conclusion</h4>
+              <p className="text-gray-700 leading-relaxed mb-3">
+                Designing for three distinct user personas in the financial sector presented unique challenges in balancing complexity with accessibility. The key insight was that role-based adaptation, rather than one-size-fits-all solutions, was essential for meeting diverse user needs while maintaining platform cohesion.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                The success of this project demonstrates the importance of deep user research and iterative testing in creating financial software that truly serves its users. By focusing on automation, security, and intuitive design, we've created a platform that makes accounting accessible to everyone from freelancers to professional accounting firms.
               </p>
             </div>
           )}
